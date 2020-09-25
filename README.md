@@ -124,7 +124,7 @@ The complexity of recent software solutions is continuously going up due to the 
 
 Note - The patterns will address issues such as minimizing the business risk, maintaining high availability, and many others. Please keep in mind that the decision on which architecture to use will depend on your unique requirements.
 
- Top architecture patterns
+Top architecture patterns
 
 Layered pattern: 
 
@@ -146,7 +146,7 @@ Peer to peer pattern:
 
 All the separate components are called “peers.” They may function like a client that requests the peers to perform a particular function or as a server that provides the peers with everything they need. The role of the peer may change over time. This sort of pattern is common among file-sharing networks.
 
-Event-bus pattern
+Event-bus pattern:
 
 Unlike some of the other patterns on this list, this one has four entities: bus, listener, source, and channel. The sources send messages to certain channels on the event bus, while the listeners will tune in to channels they need. The listeners will be notified when a message was published to a channel to which they are tuned in. This sort of architecture is widespread in Android apps and various notification services.
 
@@ -160,7 +160,7 @@ The client-server model, or client-server architecture, is a distributed applica
 Client requests are organized and prioritized in a scheduling system, which helps servers cope in the instance of receiving requests from many distinct clients in a short space of time. The client-server approach enables any general-purpose computer to expand its capabilities by utilizing the shared resources of other hosts. Popular client-server applications include email, the World Wide Web, and network printing.
 
 
-Characteristics of Client/Server Architecture
+Some haracteristics of Client/Server Architecture:
 
 •	Asymmetrical protocols-There is a many-to-one relationship between clients and a server. Clients always initiate a dialog by requesting a service. Servers wait passively for requests from clients.
 
@@ -175,7 +175,9 @@ Characteristics of Client/Server Architecture
 Every client/server application contains three functional units:
 
 •	Presentation logic or user interface (for example, ATM machines)
+
 •	Business logic (for example software that enables a customer to request an account balance)
+
 •	Data (for example, records of customer accounts)
 
 In 2-tier client/server applications, the business logic is buried inside the user interface on the client or within the database on the server in the form of stored procedures. Alternatively, the business logic can be divided between the client and server. File servers and database servers with stored procedures are examples of 2-tier architecture.
@@ -190,11 +192,6 @@ In 3-tier client/server applications, the business logic resides in the middle t
 Peer-to-peer meaning is the direct interaction between two computer systems within one network. Files can be shared directly between systems on the network without the need of a central server. In other words, each computer on a P2P network becomes a file server as well as a client. 
 
 It is very common to see P2P network systems on local area networks, such as home networks, where each device can be synced with one another to share files. These systems can be created as wired or wireless networks where they use the same networking protocols as well as the same software to perform their functions. Schools and small businesses regularly take advantage of creating a P2P network system to share and access files among all users.
-
-A P2P network is extremely secure and hackers find them difficult to take down. Even if one device is shut down, the other devices continue to share their resources and communicate with one another, ensuring uptime is maximized. In order for the entire network to be shut down, each device would have to be taken down individually.
-
-P2P networks is they are extremely scalable. Any time you onboard a new employee and new devices, there is no need to perform central configurations to the primary server. And in regards to file sharing, the more devices you have connected, the faster files can be shared.
-
 
 Advantages:
 
@@ -257,7 +254,6 @@ Drawbacks:
 
 •	Reliability — Bug in any module (e.g. memory leak) can potentially bring down the entire process. Moreover, since all instances of the application are identical, that bug impact the availability of the entire application
 
-•	Regardless of how easy the initial stages may seem, Monolithic applications have difficulty to adopting new and advance technologies. Since changes in languages or frameworks affect an entire application, it requires efforts to thoroughly work with the app details, hence it is costly considering both time and efforts.
 
 
 
@@ -278,15 +274,11 @@ Benefits:
 
 •	It enables you to organize the development effort around multiple teams. Each team is responsible for one or more single service. Each team can develop, deploy and scale their services independently of all of the other teams.
 
-•	The application starts faster, which makes developers more productive, and speeds up deployments
-
 •	Improved fault isolation. For example, if there is a memory leak in one service then only that service is affected. The other services continue to handle requests.
 
 Drawbacks:
 
 •	Developers must deal with the additional complexity of creating a distributed system.
-
-•	Developer tools/IDEs are oriented on building monolithic applications and don’t provide explicit support for developing distributed applications.
 
 •	Implementing use cases that span multiple services requires careful coordination between the teams.
 
@@ -303,9 +295,7 @@ REST is a client-server architecture. The client and the server both have a diff
 
 A RESTful web application exposes information about itself in the form of information about its resources. It also enables the client to take actions on those resources, such as create new resources (i.e. create a new user) or change existing resources (i.e. edit a post).
 
-In order for your APIs to be RESTful, you have to follow a set of constraints when you write them. The REST set of constraints will make your APIs easier to use and also easier to discover, meaning a developer who is just starting to use your APIs will have an easier time learning how to do so.
-
-For example, when a developer calls Instagram API to fetch a specific user (the resource), the API will return the state of that user, including their name, the number of posts that user posted on Instagram so far, how many followers they have, and more.
+In order for your APIs to be RESTful, you have to follow a set of constraints when you write them. For example, when a developer calls Instagram API to fetch a specific user (the resource), the API will return the state of that user, including their name, the number of posts that user posted on Instagram so far, how many followers they have, and more.
 The representation of the state can be in a JSON format, and probably for most APIs this is indeed the case. It can also be in XML or HTML format.
 
 What the server does when you, the client, call one of its APIs depends on 2 things that you need to provide to the server:
