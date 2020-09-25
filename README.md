@@ -106,7 +106,7 @@ Scalability is the capability of a process, network, software or appliance to gr
 
 Reliability is the most important feature of any application, because if the application is not reliable, users will eventually leave, and the other features won't matter.
 
-1.	An application must have measurable reliability goals, and deviations must be promptly corrected.
+•	An application must have measurable reliability goals, and deviations must be promptly corrected.
 
 •	The application must be architected for scalability, high availability, and automated change management.
 
