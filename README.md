@@ -124,10 +124,7 @@ The complexity of recent software solutions is continuously going up due to the 
 
 Note - The patterns will address issues such as minimizing the business risk, maintaining high availability, and many others. Please keep in mind that the decision on which architecture to use will depend on your unique requirements.
 
-
-
-
-## Top architecture patterns
+ Top architecture patterns
 
 Layered pattern: 
 
@@ -236,6 +233,7 @@ The Monolithic application describes a single-tiered software application in whi
 
 •	Notification module — responsible for sending email notifications whenever needed.
 
+
 Benefits:
 
 •	Simple to develop — At the beginning of a project it is much easier to go with Monolithic Architecture.
@@ -245,6 +243,7 @@ Benefits:
 •	Simple to deploy. You have to copy the packaged application to a server.
 
 •	Simple to scale horizontally by running multiple copies behind a load balancer.
+
 
 Drawbacks:
 
@@ -267,6 +266,7 @@ Drawbacks:
 Microservices are an approach to application development in which a large application is built as a suite of modular services (i.e. loosely coupled modules/components). Each module supports a specific business goal and uses a simple, well-defined interface to communicate with other sets of services.
 
 Instead of sharing a single database as in Monolithic application, each microservice has its own database. Having a database per service is essential if you want to benefit from microservices, because it ensures loose coupling. Each of the services has its own database. 
+
 
 Benefits:
 
