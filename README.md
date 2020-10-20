@@ -311,11 +311,13 @@ What the server does when you, the client, call one of its APIs depends on 2 thi
 
 
 DynamoDB:
+
 DynamoDB is a fully managed, Internet scalable, easily administrated and cost-effective NoSQL database.
 
 Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
 For example, 
 
+<<<<<<< HEAD
     Class Blog:
         def __init__(self):
             self.__Tablename__ = "DevBops_blog"
@@ -328,6 +330,20 @@ For example,
 
     if __name__ == "__main__":
         blog = Blog()
+=======
+ Class Blog:
+     def __init__(self):
+        self.__Tablename__ = "DevBops_blog"
+        self.client = boto3.client('dynamodb')
+        self.DB = boto3.resource('dynamodb')
+        self.Primary_Column_Name = "blogName"
+        self.Primary_key = "blogName"
+        self.columns = ["BlogDate", "BlogTime", "UserName", "BlogContent", "BlogLocation", "BlogComment"]
+        self.table = self.DB.Table(self.__Tablename__)
+
+if __name__ == "__main__":
+    blog = Blog()
+>>>>>>> c9969053570c34b36bf9d4f1005efef9c53bf693
 
 Use CURD functions to add, create, delete, update, and view the data. 
 
