@@ -316,55 +316,55 @@ DynamoDB is a fully managed, Internet scalable, easily administrated and cost-ef
 Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
 For example, 
 
-Class Blog:
-    def __init__(self):
-        self.__Tablename__ = "DevBops_blog"
-        self.client = boto3.client('dynamodb')
-        self.DB = boto3.resource('dynamodb')
-        self.Primary_Column_Name = "blogName"
-        self.Primary_key = "blogName"
-        self.columns = ["BlogDate", "BlogTime", "UserName", "BlogContent", "BlogLocation", "BlogComment"]
-        self.table = self.DB.Table(self.__Tablename__)
+    Class Blog:
+        def __init__(self):
+            self.__Tablename__ = "DevBops_blog"
+            self.client = boto3.client('dynamodb')
+            self.DB = boto3.resource('dynamodb')
+            self.Primary_Column_Name = "blogName"
+            self.Primary_key = "blogName"
+            self.columns = ["BlogDate", "BlogTime", "UserName", "BlogContent", "BlogLocation", "BlogComment"]
+            self.table = self.DB.Table(self.__Tablename__)
 
-if __name__ == "__main__":
-    blog = Blog()
+    if __name__ == "__main__":
+        blog = Blog()
 
 Use CURD functions to add, create, delete, update, and view the data. 
 
-Response template: 
-return {
-               "Result": False or True,
-               "Error": None or errorMessage,
-               "Description": "",
-               "BlogID": None or blogID
-           }
+    Response template: 
+r   eturn {
+                "Result": False or True,
+                "Error": None or errorMessage,
+                "Description": "",
+                "BlogID": None or blogID
+            }
 
 
 Example:
 
 
-def delete(self, BlogName):
-        response = self.table.scan(
-            FilterExpression=Attr("blogName").eq(BlogName)
-        )
-        if response["Items"]:
-             self.Primary_key = response["Items"][0]["blogName"]
-             res = self.table.delete_item(
-                 Key={
-                     self.Primary_Column_Name:self.Primary_key
-                 }
-             )
-             return {
-                 "Result": True,
-                 "Error": None,
-                 "Description": "Blog was deleted"
-             }
-        else:
-            return {
-                "Result": False,
-                "Error": "Blog does not exists",
-                "Description": "Error"
-            }
+    def delete(self, BlogName):
+            response = self.table.scan(
+                FilterExpression=Attr("blogName").eq(BlogName)
+            )
+            if response["Items"]:
+                self.Primary_key = response["Items"][0]["blogName"]
+                res = self.table.delete_item(
+                    Key={
+                        self.Primary_Column_Name:self.Primary_key
+                    }
+                )
+                return {
+                    "Result": True,
+                    "Error": None,
+                    "Description": "Blog was deleted"
+                }
+            else:
+                return {
+                    "Result": False,
+                    "Error": "Blog does not exists",
+                    "Description": "Error"
+                }
 
 What is REST?
 
@@ -376,6 +376,7 @@ What is CRUD?
 When building APIs, we want to provide the four basic types of functionality. There must be a way to Create, Read, Update, and Delete resources.
 
 ### Rest API:
+
 REST API is composed of three key items: (1) the url& endpoint, (2) the method, and (3) the data.
 
 When a client makes an HTTP request against an API in order to retrieve data, the first item that must be designed is the URL. The URL generally encompasses the sites domain, a series of directory hierarchies, and finally the endpoint
@@ -399,25 +400,25 @@ Flask’s the main focus within APIs concerns the routing and flow of informatio
 
 We begin the process by importing flask and necessary connecting files, defining our ‘app’ within the init.py / blog.py file and creating a Flask application. 
 
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+    app = flask.Flask(__name__)
+    app.config["DEBUG"] = True
 
 We then must create a few functions that display data when certain routes are taken within the URL. 
 For example, ‘view all’ function which displays all entries within the database. 
 
 
-@app.route('/view', methods=["GET"])
+    @app.route('/view', methods=["GET"])
 
-def viewing():
-    res = blog.view()
-    return res
+    def viewing():
+        res = blog.view()
+        return res
 
 With this functionality enabled, end-users are now able to query all of the data within our database. 
 
 Once all the routes snd functions are completed,
 the application can be run using Flask’s run functionality.
 
-app.run()
+    app.run()
 
 
 ## Postman:
@@ -425,18 +426,19 @@ app.run()
 Postman is a collaboration platform for API development. It is a popular API client and it enables you to design, build, share, test, and document APIs.
 Using the Postman tool, we can send HTTP/s requests to a service, as well as get their responses. By doing this we can make sure that the service is up and running.
 
-What is HTTP?
+# What is HTTP?
 
 HTTP stands for Hyper Text Transfer Protocol. HTTP enables communication between clients and servers. Clients are often web browsers and Servers are often computers on the cloud.
 If a client submits an HTTP request to the server, then the server returns a response to the client. The response sent by the server contains status information about the request and the requested content.
 
 
 Most commonly used HTTP methods are as follows:
-1. GET:  method is used to retrieve data from an API.
-2. POST: method is used to send new data to an API
-3. PUT: method is used to update existing data
-4. PATCH: method is used to update existing data
-5. DELETE : method is used to remove existing data.
+
+    1. GET:  method is used to retrieve data from an API.
+    2. POST: method is used to send new data to an API
+    3. PUT: method is used to update existing data
+    4. PATCH: method is used to update existing data
+    5. DELETE : method is used to remove existing data.
 
 
 Testing Get Requests:
