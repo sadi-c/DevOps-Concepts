@@ -310,7 +310,7 @@ What the server does when you, the client, call one of its APIs depends on 2 thi
 
 
 
-## DynamoDB:
+### DynamoDB:
 
 DynamoDB is a fully managed, Internet scalable, easily administrated and cost-effective NoSQL database.
 
@@ -395,7 +395,7 @@ PUT requests are used to send data to an API in order to create or update an ent
 DELETE requests are used to delete certain entries within the database.
 
 
-### Creating the Flask Application:
+#### Creating the Flask Application:
 
 Flask’s the main focus within APIs concerns the routing and flow of information.
 
@@ -427,7 +427,7 @@ the application can be run using Flask’s run functionality.
 Postman is a collaboration platform for API development. It is a popular API client and it enables you to design, build, share, test, and document APIs.
 Using the Postman tool, we can send HTTP/s requests to a service, as well as get their responses. By doing this we can make sure that the service is up and running.
 
-# What is HTTP?
+### What is HTTP?
 
 HTTP stands for Hyper Text Transfer Protocol. HTTP enables communication between clients and servers. Clients are often web browsers and Servers are often computers on the cloud.
 
