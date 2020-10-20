@@ -420,7 +420,8 @@ the application can be run using Flask’s run functionality.
 app.run()
 
 
-Postman:
+## Postman:
+
 Postman is a collaboration platform for API development. It is a popular API client and it enables you to design, build, share, test, and document APIs.
 Using the Postman tool, we can send HTTP/s requests to a service, as well as get their responses. By doing this we can make sure that the service is up and running.
 
