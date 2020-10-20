@@ -398,7 +398,7 @@ DELETE requests are used to delete certain entries within the database.
 
 Flask’s the main focus within APIs concerns the routing and flow of information.
 
-We begin the process by importing flask and necessary connecting files, defining our ‘app’ within the init.py / blog.py file and creating a Flask application. 
+We begin the process by importing flask and necessary connecting files, defining our ‘app’ within the init.py / blog.py file and create a Flask application. 
 
     app = flask.Flask(__name__)
     app.config["DEBUG"] = True
@@ -429,6 +429,7 @@ Using the Postman tool, we can send HTTP/s requests to a service, as well as get
 # What is HTTP?
 
 HTTP stands for Hyper Text Transfer Protocol. HTTP enables communication between clients and servers. Clients are often web browsers and Servers are often computers on the cloud.
+
 If a client submits an HTTP request to the server, then the server returns a response to the client. The response sent by the server contains status information about the request and the requested content.
 
 
