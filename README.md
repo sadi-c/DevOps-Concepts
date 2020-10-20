@@ -315,7 +315,8 @@ DynamoDB is a fully managed, Internet scalable, easily administrated and cost-ef
 
 Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
 For example, 
-lass Blog:
+
+Class Blog:
     def __init__(self):
         self.__Tablename__ = "DevBops_blog"
         self.client = boto3.client('dynamodb')
@@ -340,6 +341,8 @@ return {
 
 
 Example:
+
+
 def delete(self, BlogName):
         response = self.table.scan(
             FilterExpression=Attr("blogName").eq(BlogName)
@@ -402,7 +405,9 @@ app.config["DEBUG"] = True
 We then must create a few functions that display data when certain routes are taken within the URL. 
 For example, ‘view all’ function which displays all entries within the database. 
 
+
 @app.route('/view', methods=["GET"])
+
 def viewing():
     res = blog.view()
     return res
@@ -420,6 +425,7 @@ Postman is a collaboration platform for API development. It is a popular API cli
 Using the Postman tool, we can send HTTP/s requests to a service, as well as get their responses. By doing this we can make sure that the service is up and running.
 
 What is HTTP?
+
 HTTP stands for Hyper Text Transfer Protocol. HTTP enables communication between clients and servers. Clients are often web browsers and Servers are often computers on the cloud.
 If a client submits an HTTP request to the server, then the server returns a response to the client. The response sent by the server contains status information about the request and the requested content.
 
