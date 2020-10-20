@@ -311,6 +311,7 @@ What the server does when you, the client, call one of its APIs depends on 2 thi
 
 
 DynamoDB:
+
 DynamoDB is a fully managed, Internet scalable, easily administrated and cost-effective NoSQL database.
 
 Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
