@@ -304,3 +304,147 @@ What the server does when you, the client, call one of its APIs depends on 2 thi
 
 2.	The operation you want the server to perform on that resource, in the form of an HTTP method, or verb. The common HTTP methods are GET, POST, PUT, and DELETE.
 
+
+
+
+
+
+
+DynamoDB:
+DynamoDB is a fully managed, Internet scalable, easily administrated and cost-effective NoSQL database.
+
+Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
+For example, 
+lass Blog:
+    def __init__(self):
+        self.__Tablename__ = "DevBops_blog"
+        self.client = boto3.client('dynamodb')
+        self.DB = boto3.resource('dynamodb')
+        self.Primary_Column_Name = "blogName"
+        self.Primary_key = "blogName"
+        self.columns = ["BlogDate", "BlogTime", "UserName", "BlogContent", "BlogLocation", "BlogComment"]
+        self.table = self.DB.Table(self.__Tablename__)
+
+if __name__ == "__main__":
+    blog = Blog()
+
+Use CURD functions to add, create, delete, update, and view the data. 
+
+Response template: 
+return {
+               "Result": False or True,
+               "Error": None or errorMessage,
+               "Description": "",
+               "BlogID": None or blogID
+           }
+
+
+Example:
+def delete(self, BlogName):
+        response = self.table.scan(
+            FilterExpression=Attr("blogName").eq(BlogName)
+        )
+        if response["Items"]:
+             self.Primary_key = response["Items"][0]["blogName"]
+             res = self.table.delete_item(
+                 Key={
+                     self.Primary_Column_Name:self.Primary_key
+                 }
+             )
+             return {
+                 "Result": True,
+                 "Error": None,
+                 "Description": "Blog was deleted"
+             }
+        else:
+            return {
+                "Result": False,
+                "Error": "Blog does not exists",
+                "Description": "Error"
+            }
+
+What is REST?
+
+REST (i.e. Representation State Transfer) is an architectural style for defining our routes. It is a way of mapping HTTP routes and the CRUD functionalities.
+
+What are routes?
+Routes are the code that are responsible for listening and receiving requests and then deciding what to send back.
+What is CRUD?
+When building APIs, we want to provide the four basic types of functionality. There must be a way to Create, Read, Update, and Delete resources.
+
+### Rest API:
+REST API is composed of three key items: (1) the url& endpoint, (2) the method, and (3) the data.
+
+When a client makes an HTTP request against an API in order to retrieve data, the first item that must be designed is the URL. The URL generally encompasses the sites domain, a series of directory hierarchies, and finally the endpoint
+
+There are four main methods that are generally used when making requests with a REST API: GET, POST, PUT, and DELETE. 
+
+The main takeaway is that data can be retrieved, added, or deleted from any given database using these methods. 
+
+GET requests are the most common type of request mainly used to retrieve data from a server or database. 
+
+POST requests are used to send data to an API in order to create or update an entry. 
+
+PUT requests are used to send data to an API in order to create or update an entry. (However, PUT requests are idempotent, meaning that the application of this method multiple times can be done without changing the final result).
+
+DELETE requests are used to delete certain entries within the database.
+
+
+### Creating the Flask Application:
+
+Flask’s the main focus within APIs concerns the routing and flow of information.
+
+We begin the process by importing flask and necessary connecting files, defining our ‘app’ within the init.py / blog.py file and creating a Flask application. 
+
+app = flask.Flask(__name__)
+app.config["DEBUG"] = True
+
+We then must create a few functions that display data when certain routes are taken within the URL. 
+For example, ‘view all’ function which displays all entries within the database. 
+
+@app.route('/view', methods=["GET"])
+def viewing():
+    res = blog.view()
+    return res
+
+With this functionality enabled, end-users are now able to query all of the data within our database. 
+
+Once all the routes snd functions are completed,
+the application can be run using Flask’s run functionality.
+
+app.run()
+
+
+Postman:
+Postman is a collaboration platform for API development. It is a popular API client and it enables you to design, build, share, test, and document APIs.
+Using the Postman tool, we can send HTTP/s requests to a service, as well as get their responses. By doing this we can make sure that the service is up and running.
+
+What is HTTP?
+HTTP stands for Hyper Text Transfer Protocol. HTTP enables communication between clients and servers. Clients are often web browsers and Servers are often computers on the cloud.
+If a client submits an HTTP request to the server, then the server returns a response to the client. The response sent by the server contains status information about the request and the requested content.
+
+
+Most commonly used HTTP methods are as follows:
+1. GET:  method is used to retrieve data from an API.
+2. POST: method is used to send new data to an API
+3. PUT: method is used to update existing data
+4. PATCH: method is used to update existing data
+5. DELETE : method is used to remove existing data.
+
+
+Testing Get Requests:
+
+GET is used to request data from a specified resource. Once the new request is chosen as a GET request in the tool, proceed to name the request. Next, mention the URL to be tested.
+
+Once the request is saved, send the request by clicking the Send button. As a result, the response body is displayed in the lower section of the Workspace. The response body is the result of the API request being sent. To validate this result of the GET request, view the response text, Status, Time Taken, Size in that section.
+
+
+Testing Post Requests:
+
+POST is used to send data to a server to create/update a resource. To create a POST request, we follow similar steps as we did for the GET request creation. However, this time choose the POST option for the URL. We also mention the data to be created or updated in the Request Body section. After that, we click the Save button and send the request by clicking the Send button.
+
+
+
+
+
+
