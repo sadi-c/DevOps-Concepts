@@ -317,8 +317,8 @@ DynamoDB is a fully managed, Internet scalable, easily administrated and cost-ef
 Start with AWS.py file, use a class method, initialize, add Table name, boto3, DB, and columns including items that you will need for your project. 
 For example, 
 
-Class Blog:
-    def __init__(self):
+ Class Blog:
+     def __init__(self):
         self.__Tablename__ = "DevBops_blog"
         self.client = boto3.client('dynamodb')
         self.DB = boto3.resource('dynamodb')
